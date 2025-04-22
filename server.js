@@ -42,6 +42,7 @@ client
     console.error("Error connecting to the database:", err);
   });
 
+// add flavor
 server.post("/api/flavors", async (req, res) => {
   const { name, is_favorite } = req.body;
 
@@ -58,6 +59,8 @@ server.post("/api/flavors", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
+// delete flavor
 server.delete("/api/flavors/:id", async (req, res) => {
   const { id } = req.params;
 
@@ -69,6 +72,7 @@ server.delete("/api/flavors/:id", async (req, res) => {
   }
 });
 
+// get specific flavor from id
 server.get("/api/flavors/:id", async (req, res) => {
   const { id } = req.params;
 
@@ -84,6 +88,7 @@ server.get("/api/flavors/:id", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+// update flavor using id
 server.put("/api/flavors/:id", async (req, res) => {
   const { id } = req.params;
   const { name, is_favorite } = req.body;
